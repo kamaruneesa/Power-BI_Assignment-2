@@ -23,4 +23,23 @@
      -  - Table tools➡️ New measures ➡️max date:Max date = MAX('List of Orders '[Order Date])
         -  Table tools➡️ New measures ➡️min date:min date = MIN('List of Orders '[Order Date])
         -   Table tools➡️ New measures ➡️Total sales amount = SUM('Order Details '[Amount])
-        - Table tools➡️ New measures ➡️sales YTD = TOTALYTD([Total sales amount],'List of Orders '[Order Date])=65K  
+        - Table tools➡️ New measures ➡️sales YTD = TOTALYTD([Total sales amount],'List of Orders '[Order Date])=65K
+      
+
+**Data Visualization:**
+
+ - **Sales Target Achievement by Category:**
+     -  clustered column chart: report view ➡️ select chart ➡️X-axis: category ,Y-axis: sum of amount, Target sales
+
+- **Max Profit Margin by Sub-Category:**
+     -  Table tools➡️ New measures ➡️ 
+     - Profit margin = DIVIDE(SUM('Order Details '[Profit]),SUM('Order Details '[Amount]),0)
+     - Max profit margin = MAXX(VALUES('Order Details '[Sub-Category]),[Profit margin])
+    -  Donut chart: report view ➡️ select chart ➡️legend: sub-category,
+
+- **Comparison of Profit and Quantity by Sub-Category:**
+    -  line chart: report view ➡️ select chart ➡️ x-axis :order date (month), y-axis :sum of amount
+ 
+- **Comparison of Profit and Quantity by Sub-Category:**
+     -  scatter chart: line chart: report view ➡️ select chart ➡️ values : sub-category ,x-axis :sum of quantity ,y-axis: sum of profit 
+           
