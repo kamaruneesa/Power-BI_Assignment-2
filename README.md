@@ -2,7 +2,7 @@
 # Dax & Data Visualization
 ## Power-BI Desktop Window ➡️ Get Data ➡️Transform ➡️Text/csv ➡️Select files➡️clean files
   
-
+  -"the 'List of order 'table originally had 501 rows ,which was cleaned and reduces to 193 rows" 
 
  **Calculated Columns:**
  
@@ -22,7 +22,7 @@
   - **Calculate Year-to-Date (YTD) Sales:**
      -  - Table tools➡️ New measures ➡️max date:Max date = MAX('List of Orders '[Order Date])
         -  Table tools➡️ New measures ➡️min date:min date = MIN('List of Orders '[Order Date])
-        -   Table tools➡️ New table ➡️Date_table = ADDCOLUMNS(CALENDAR(DATE(1,4,2018),DATE(12,3,2019)),"year",YEAR([Date]),"month number",MONTH([Date]),"month name",FORMAT([Date],"mmmm"),"Quater","Q" & QUARTER([Date]),"Day",DAY([Date]),"Day NAME",FORMAT([Date],"DDDD"))
+        -   Table tools➡️ New table ➡️Date_table = ADDCOLUMNS(CALENDAR(DATE(2018,4,1),DATE(2019,3,12)),"year",YEAR([Date]),"month number",MONTH([Date]),"month name",FORMAT([Date],"mmmm"),"Quater","Q" & QUARTER([Date]),"Day",DAY([Date]),"Day NAME",FORMAT([Date],"DDDD"))
         -   Table tools➡️ New measures ➡️Total sales amount = SUM('Order Details '[Amount])
         - Table tools➡️ New measures ➡️sales YTD = TOTALYTD([Total sales amount],'List of Orders '[Order Date])=65K
       
@@ -45,12 +45,19 @@
      -  scatter chart: report view ➡️ select chart ➡️ values : sub-category ,x-axis :sum of quantity ,y-axis: sum of profit
 
 - **Comparison of Total Sales Amount and Target:**
+     - minimum target:min target = MIN('Sales target '[Target])
+     - multi-row card :select➡️ sum of target, total sales amount, min target 
 - **Sales Performance Matrix:**
     - Matrix: report view ➡️ select chart ➡️ rows: category , column: month ,values: sum of amount ,sum of target
 - **Geographic Sales Analysis:**
+     - map :report view ➡️ select chart ➡️ location: city,  legend:  sum of amount
+     - Kashmir  :not a city , causing incorrect map placement ,
+     - order B225962: missing city name (blank), leading to location errors
 
 - **Sales Distribution by Sub-Category:**
-- tree map: 
+   - tree map: category :sub- category ,values:   sum ofamount
+- **Order Count Analysis by State:**
+   - funnel chart: category :state ,values :total orders
  
        
            
