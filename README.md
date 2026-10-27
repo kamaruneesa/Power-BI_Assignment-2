@@ -16,12 +16,13 @@
  **Calculated Measures:**
  
   - **Calculate Order Count:**
-     - Table tools➡️ New measures ➡️Total Orders = COUNT('Order Details '[Order ID])
+     - Table tools➡️ New measures ➡️Total Orders = DISTINCTCOUNT('Order Details '[Order ID])
   - **Calculate Average Profit in Delhi:**
     -  Table tools➡️ New measures ➡️Delhi Average Profit = CALCULATE(AVERAGE('Order Details '[Profit] ),'List of Orders               '[State]="Delhi")
   - **Calculate Year-to-Date (YTD) Sales:**
      -  - Table tools➡️ New measures ➡️max date:Max date = MAX('List of Orders '[Order Date])
         -  Table tools➡️ New measures ➡️min date:min date = MIN('List of Orders '[Order Date])
+        -   Table tools➡️ New table ➡️Date_table = ADDCOLUMNS(CALENDAR(DATE(1,4,2018),DATE(12,3,2019)),"year",YEAR([Date]),"month number",MONTH([Date]),"month name",FORMAT([Date],"mmmm"),"Quater","Q" & QUARTER([Date]),"Day",DAY([Date]),"Day NAME",FORMAT([Date],"DDDD"))
         -   Table tools➡️ New measures ➡️Total sales amount = SUM('Order Details '[Amount])
         - Table tools➡️ New measures ➡️sales YTD = TOTALYTD([Total sales amount],'List of Orders '[Order Date])=65K
       
@@ -41,5 +42,15 @@
     -  line chart: report view ➡️ select chart ➡️ x-axis :order date (month), y-axis :sum of amount
  
 - **Comparison of Profit and Quantity by Sub-Category:**
-     -  scatter chart: line chart: report view ➡️ select chart ➡️ values : sub-category ,x-axis :sum of quantity ,y-axis: sum of profit 
+     -  scatter chart: report view ➡️ select chart ➡️ values : sub-category ,x-axis :sum of quantity ,y-axis: sum of profit
+
+- **Comparison of Total Sales Amount and Target:**
+- **Sales Performance Matrix:**
+    - Matrix: report view ➡️ select chart ➡️ rows: category , column: month ,values: sum of amount ,sum of target
+- **Geographic Sales Analysis:**
+
+- **Sales Distribution by Sub-Category:**
+- tree map: 
+ 
+       
            
